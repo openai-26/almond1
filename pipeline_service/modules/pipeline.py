@@ -257,6 +257,7 @@ class GenerationPipeline:
 
         # Decode input image
         image = decode_image(request.prompt_image)
+        original_image = image.copy()
         
         # Validate input image quality
         if image.width < 64 or image.height < 64:
@@ -281,7 +282,7 @@ class GenerationPipeline:
 
         # 2. Remove background
         image_without_background = self.rmbg.remove_background(image_edited)
-        original_image_without_background = self.rmbg.remove_background(image)
+        original_image_without_background = self.rmbg.remove_background(original_image)
 
         # Validate background-removed image
         if not image_without_background or image_without_background.size[0] == 0 or image_without_background.size[1] == 0:
