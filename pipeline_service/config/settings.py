@@ -46,7 +46,7 @@ class Settings(BaseSettings):
     qwen_edit_megapixels: float = Field(default=1.5, env="QWEN_EDIT_MEGAPIXELS", description="Megapixels for image preprocessing (higher = more detail preserved)")
 
     # Background removal settings
-    background_removal_model_id: str = Field(default="hiepnd11/rm_back2.0", env="BACKGROUND_REMOVAL_MODEL_ID")
+    background_removal_model_id: str = Field(default="tuandao-zenai/rm_bg", env="BACKGROUND_REMOVAL_MODEL_ID")
     input_image_size: tuple[int, int] = Field(default=(1024, 1024), env="INPUT_IMAGE_SIZE") # (height, width)
     output_image_size: tuple[int, int] = Field(default=(518, 518), env="OUTPUT_IMAGE_SIZE") # (height, width)
     padding_percentage: float = Field(default=0.2, env="PADDING_PERCENTAGE")
